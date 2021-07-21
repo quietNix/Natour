@@ -1,0 +1,120 @@
+.form {
+  width: 50%;
+  padding: 6vw;
+
+  & > h2 {
+    text-align: left;
+    padding-left: 0;
+    margin-bottom: 2rem;
+  }
+
+  &-group {
+    &:not(:last-child) {
+      margin-bottom: 2vw;
+    }
+
+    &__input {
+      font-size: calc(max(0.7rem + 0.3vw, 0.3rem + 0.7vw) * 1);
+      font-family: inherit;
+      color: inherit;
+      padding: 1em 1.5em;
+      border-radius: 2px;
+      background-color: $color-white;
+      border: none;
+      border-bottom: 3px solid transparent;
+      width: 90%;
+      display: block;
+      transition: all 0.3s;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 1em 2em rgba($color-black, 0.1);
+        border-bottom: 3px solid $color-primary;
+      }
+
+      &:focus:invalid {
+        border-bottom: 3px solid $color-secondary-dark;
+      }
+
+      &::-webkit-input-placeholder {
+        color: $color-grey-dark-2;
+      }
+    }
+
+    &__label {
+      font-size: calc(max(0.7rem + 0.3vw, 0.3rem + 0.7vw) * 1,);
+      font-weight: 700;
+      margin-left: 1.5em;
+      margin-top: 0.7em;
+      display: block;
+      transition: all 0.3s;
+      color: $color-primary;
+    }
+
+    &__input:placeholder-shown + &__label {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-2em);
+    }
+
+    &__radio {
+      display: inline;
+
+      &_input {
+        display: none;
+      }
+
+      &_label {
+        font-size: calc(max(0.7rem + 0.3vw, 0.3rem + 0.7vw) * 1);
+        line-height: 1.4em;
+        cursor: pointer;
+        position: relative;
+        padding: 0 1.5em;
+
+        &-button {
+          height: 2em;
+          width: 2em;
+          border: 3px solid $color-primary;
+          border-radius: 50%;
+          display: inline-block;
+          position: absolute;
+          left: -1em;
+          top: -0.2em;
+
+          &::after {
+            content: "";
+            display: block;
+            height: 0.8em;
+            width: 0.8em;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $color-primary;
+            opacity: 0;
+            transition: opacity 0.2s;
+          }
+        }
+      }
+
+      &_input:checked ~ &_label &_label-button::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@include respond(tab-port) {
+  .form {
+    width: 100%;
+
+    &-group {
+      
+      &__radio {
+        display: block;
+        margin-bottom: 1vh;
+      }
+    }
+  }
+}

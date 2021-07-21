@@ -1,0 +1,74 @@
+@import "../sass/abstracts/variables";
+@import "../sass/abstracts/mixins";
+
+@import "../sass/base/reset";
+@import "../sass/base/typography";
+@import "../sass/layout/grid";
+
+// shared components
+@import "../sass/components/shared/shared__btn";
+
+// container{navigation, header, about, features, tours, stories, book, footer}
+@import "../sass/layout/container";
+
+@import "../sass/layout/navigation";
+
+@import "../sass/layout/header";
+
+@import "../sass/components/about";
+
+@import "../sass/components/features";
+
+// tours{card{popup}}
+.tours {
+  background-color: $color-grey-light-1;
+  padding: 20vh 7vw 10vh;
+
+  margin-top: -10vh;
+  text-align: center;
+  // .typo__heading-h2 {}
+  // .row {
+  //   .col-1-of-3 {
+  //     .card {}
+  //   }
+  // }
+  // .shared__btn {}
+}
+@import "../sass/components/card";
+@import "../sass/components/popup";
+
+@import "../sass/components/stories";
+
+//book{form}
+.book {
+  padding: 10vh 8vw;
+  background: linear-gradient(
+    to right bottom,
+    $color-primary-light-2,
+    $color-primary-dark-2
+  );
+
+  &-card {
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 50%,
+        transparent 50%
+      ),
+      url(../img/nat-10.jpg);
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+
+    @include respond(tab-port) {
+      background-image: linear-gradient(
+          to right,
+          rgba($color-white, 0.9) rgba($color-white, 0.9)
+        ),
+        url(../img/nat-10.jpg);
+    }
+  }
+}
+@import "../sass/components/form";
+
+@import "../sass/layout/footer";

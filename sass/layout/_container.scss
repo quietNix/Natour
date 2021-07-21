@@ -1,0 +1,9 @@
+.container {
+  padding: 2.5vh 2vw;
+  min-height: 95vh;
+
+  @include respond(tab-land){
+    padding: 0;
+  }
+  
+}

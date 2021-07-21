@@ -1,0 +1,82 @@
+.footer {
+  background-color: $color-grey-dark-3;
+  padding: 8vw 8vw;
+  color: $color-grey-light-1;
+
+  &-logo {
+    text-align: center;
+    margin-bottom: 6vw;
+
+    &__picture {
+      & > img {
+        width: 8vw;
+        height: auto;
+      }
+    }
+  }
+
+  &-nav {
+    border-top: 1px solid $color-grey-dark;
+    margin: 0 2vw;
+    padding-top: 1vw;
+    text-align: center;
+
+    // display: flex;
+    // justify-content: space-between;
+
+    &__link {
+      &:not(:last-child) {
+        margin-right: 1.4vw;
+      }
+
+      &,
+      &:link,
+      &:visited {
+        font-size: calc(max(0.7rem + 0.3vw, 0.3rem + 0.7vw) * 0.92);
+        line-height: 1em;
+        color: $color-grey-light-1;
+        background-color: $color-grey-dark-3;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: inline-block;
+        transition: all 0.2s;
+      }
+
+      &:hover,
+      &:active {
+        color: $color-primary;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+        transform: rotate(5deg) scale(1.3);
+      }
+    }
+  }
+  &__copyright {
+    font-size: calc(max(0.7rem + 0.3vw, 0.3rem + 0.7vw) * 1);
+    line-height: 1.4em;
+    border-top: 1px solid $color-grey-dark;
+    padding-top: 1em;
+    width: 80%;
+    float: right;
+    text-align: center;
+
+    &_name{
+      margin-right: 0 !important;
+    }
+  }
+}
+
+@include respond(tab-port) {
+  .footer {
+    &-logo{
+      &__picture{
+        &>img{
+          width: 6rem;
+        }
+      }
+    }
+    &__copyright {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

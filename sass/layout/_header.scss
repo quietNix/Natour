@@ -1,0 +1,55 @@
+.header {
+  height: 95vh;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+  background: linear-gradient(
+      to right bottom,
+      $color-primary-light,
+      $color-primary-dark
+    ),
+    url("../img/hero-small.jpg");
+  background-size: cover;
+  background-position: top left;
+  position: relative;
+
+  &-logo {
+    position: absolute;
+    top: 4vw;
+    left: 4vw;
+
+    &__img {
+      width: calc(max(0.7rem + 0.3vw, 0.1rem + 0.9vw) * 6);
+    }
+  }
+
+  &-heading {
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    // .typo__heading-h1{
+    //   &--main{}
+    //   &--secondary{}
+    // }
+    // .shared__btn{
+    //   &--animated
+    // }
+  }
+}
+
+// using img acc to res, dpi
+@media (min-resolution: 192dpi) and (min-width: 600px),
+  (-webkit-min-device-pixel-ratio: 2) and (min-width: 600px),
+  (min-width: 2000px) {
+  .header {
+    background: linear-gradient(
+        to right bottom,
+        $color-primary-light,
+        $color-primary-dark
+      ),
+      url("../img/hero.jpg");
+    background-size: cover;
+    background-position: top left;
+    // all the properties of background will get canceled.so adding again
+  }
+}

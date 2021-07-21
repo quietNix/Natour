@@ -1,0 +1,102 @@
+html {
+  font-size: clamp(12px, 1rem, 4vmax);
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.4rem;
+  color: $color-grey-dark;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translate(10vw, 10vh);
+  }
+
+  90% {
+    transform: translate(-10vw, 0);
+    color: rgb(0, 255, 191);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+    color: #fff;
+  }
+}
+.typo__heading-h1 {
+  color: white;
+  backface-visibility: hidden;
+
+  &--main {
+    font-size: calc(max((0.7rem + 0.3vw), (0.3rem + 0.7vw)) * 3);
+    line-height: 1em;
+    display: block;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+  }
+
+  &--sub {
+    display: block;
+    font-size: calc(max((0.7rem + 0.3vw), (0.3rem + 0.7vw)) * 1.6);
+    line-height: 1.2em;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    animation: moveInLeft 3s;
+    margin-top: 2em;
+  }
+}
+
+.typo__heading-h2 {
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 6vw;
+
+  & > span {
+    display: inline-block;
+    font-size: calc(max((0.7rem + 0.3vw), (0.3rem + 0.7vw)) * 2);
+    line-height: 1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light-2,
+      $color-primary-dark-2
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    // background-size: 400%;
+    display: inline-block;
+    color: transparent;
+    letter-spacing: 0.2rem;
+    transition: all 0.2s;
+
+    // @media only screen and (hover: hover) {
+    &:hover {
+      @include canHover {
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+      }
+    }
+    // }
+  }
+}
+
+.typo__heading-h3 {
+  font-size: calc(max((0.7rem + 0.3vw), (0.3rem + 0.7vw)) * 1);
+  line-height: 1.4em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1.4em;
+}
+
+.typo__paragraph {
+  font-size: calc(max((0.7rem + 0.3vw), (0.3rem + 0.7vw)) * 1);
+  line-height: 1.4em;
+  &:not(:last-child) {
+    margin-bottom: 3em;
+  }
+}

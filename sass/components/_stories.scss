@@ -1,0 +1,122 @@
+.stories {
+  position: relative;
+  padding: 5vw 0;
+  background: rgba($color-grey-light-2, 0.3);
+  overflow: hidden;
+
+  &-bgVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.2;
+    overflow: hidden;
+
+    &__video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-story {
+    width: 75%;
+    margin: 0 auto;
+    background-color: rgba($color-white, 0.6);
+    box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+    border-radius: 3px;
+    padding: 4vh 4vw;
+    transform: skewX(-12deg);
+
+    & > * {
+      transform: skewX(12deg);
+    }
+
+    //clearfix for float
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    &__figure {
+      width: calc(clamp(9px, (0.3rem + 0.7vw) * 10, 20vmax));
+      height: calc(clamp(9px, (0.3rem + 0.7vw) * 10, 20vmax));
+      float: left;
+
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
+      margin-right: 4em;
+
+      &_img {
+        height: 100%;
+        transform: translateX(-4vw) scale(1.4);
+        backface-visibility: hidden;
+        transition: all 0.5s;
+      }
+
+      &_caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: calc(max(0.7rem + 0.3vw, 0.3rem + 0.7vw) * 1.2);
+        line-height: 1.2em;
+        text-align: center;
+        opacity: 0;
+        transition: all 0.5s;
+        backface-visibility: hidden;
+      }
+    }
+
+    &:hover &__figure_img {
+      transform: translateX(-4vw) scale(1);
+      filter: blur(3px) brightness(80%);
+    }
+
+    &:hover &__figure_caption {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+
+    // &-text {}
+  }
+}
+
+@include respond(tab-port) {
+  .stories {
+    text-align: center;
+    &-story {
+      width: 100%;
+      transform: skewX(0deg);
+
+      & > * {
+        transform: skewX(0deg);
+      }
+
+      &__figure {
+        float: none;
+        margin: 0 auto 3vh;
+
+        &_img {
+          transform: translateX(0em) scale(1);
+        }
+      }
+
+      &:hover &__figure_img {
+        transform: translateX(0) scale(1);
+        filter: blur(0px) brightness(100%);
+      }
+    }
+  }
+}
